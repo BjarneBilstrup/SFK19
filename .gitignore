@@ -1,0 +1,3 @@
+.alpackages/*.app
+*.app
+xx.vscode\launch.json

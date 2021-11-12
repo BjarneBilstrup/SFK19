@@ -1,0 +1,29 @@
+pageextension 50127 "BAL CustomerList" extends "Customer List"
+//BAL1.0 - 2019-08-14-BB
+{
+    actions
+    {
+        addbefore("C&ontact")
+        {
+            action("Set incl vat")
+            {
+                ApplicationArea = Comments;
+                Caption = 'Ret til incl. moms';
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                Image = Copy;
+                ToolTipML = ENU='Ret Varer til incl moms', DAN='Ret vare til incl moms';
+
+                trigger OnAction()var item: Record item;
+                begin
+                    item.setrange("Price Includes VAT", false);
+                    item.findfirst;
+                    repeat item.validate("Price Includes VAT", true);
+                        item.modify;
+                    until item.next = 0;
+                end;
+            }
+        }
+    }
+}
