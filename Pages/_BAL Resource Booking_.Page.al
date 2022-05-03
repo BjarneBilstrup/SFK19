@@ -168,6 +168,43 @@ page 50100 "BAL Resource Booking"
                     Report.run(50102);
                 end;
             }
+            action("Create booking order")
+            {
+                ApplicationArea = Jobs;
+                Caption = 'Create Booking Order';
+                Image = Report;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+                ToolTip = 'Booking Matrix ';
+
+                trigger OnAction()
+                var
+                    Resource2: record Resource;
+                    SalesHeader: record "Sales Header";
+                    Salesline: Record "Sales Line";
+                begin
+                    CurrPage.SetSelectionFilter(Resource2);
+                    SalesHeader.init;
+                    SalesHeader."Document Type" := SalesHeader."Document Type"::Order;
+                    salesheader.insert(true);
+                    Salesline."Document Type" := SalesHeader."Document Type";
+                    Salesline."Document No." := SalesHeader."No.";
+                    Resource2.FindFirst();
+                    repeat
+                        Salesline."Line No." += 10000;
+                        Salesline.validate(type, Salesline.type::Resource);
+                        Salesline.validate("No.", Resource2."No.");
+                        Salesline.validate(Quantity, 1);
+                        Salesline."Shipment Date" := workdate;
+                        salesline.insert;
+
+
+                    until Resource2.next = 0;
+
+                end;
+            }
         }
     }
     trigger OnOpenPage()
