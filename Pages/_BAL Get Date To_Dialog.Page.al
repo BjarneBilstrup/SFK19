@@ -1,7 +1,7 @@
 page 50105 "BAL Get Date To Dialog"
 {
     ApplicationArea = Jobs;
-    Caption = 'Get date dialog';
+    Caption = 'Get dates dialog';
     DataCaptionExpression = '';
     DeleteAllowed = false;
     InsertAllowed = false;
@@ -22,23 +22,35 @@ page 50105 "BAL Get Date To Dialog"
             }
             field(leadtxt; leadtxt)
             {
-                ApplicationArea = Jobs;
+                ApplicationArea = all;
                 Caption = '';
                 ToolTip = 'Tooltip';
             }
             field(CustomerNo; CustomerNo)
             {
-                ApplicationArea = Jobs;
-                Caption = 'Angiv startdato';
+                ApplicationArea = all;
+                Caption = 'Angiv Kundenr';
                 ToolTip = 'Tooltip';
                 trigger OnValidate()
                 begin
 
                 end;
             }
+            field(SalesheaderNo; Salesheader."no.")
+            {
+                ApplicationArea = all;
+                Caption = 'Tilføj ordre';
+                ToolTip = 'Tooltip';
+
+                trigger OnValidate()
+                begin
+
+                end;
+
+            }
             field(Datefield; Datefield)
             {
-                ApplicationArea = Jobs;
+                ApplicationArea = all;
                 Caption = 'Angiv startdato';
                 ToolTip = 'Tooltip';
 
@@ -84,7 +96,9 @@ page 50105 "BAL Get Date To Dialog"
         DateTofield: Date;
         StartTime: Time;
         EndTime: Time;
-        CustomerNo: Code[20];
+        Customer: Record customer;
+        CustomerNo: code[20];
+        Salesheader: Record "Sales Header";
 
     procedure SetData(PLeadTxt: text)
     begin
@@ -92,12 +106,13 @@ page 50105 "BAL Get Date To Dialog"
         //Datefield := Pdatefield;
     end;
 
-    procedure Getdata(var pdatefield: Date; pdateTofield: Date; var PStarttime: Time; Var PEndTime: Time; PCustomerNo: code[20])
+    procedure Getdata(var pdatefield: Date; var pdateTofield: Date; var PStarttime: Time; Var PEndTime: Time; var PCustomerNo: code[20]; var PSalesheaderNo: code[20])
     begin
         pdatefield := Datefield;
         pdateTofield := DateTofield;
         PStarttime := StartTime;
         PEndTime := EndTime;
         PCustomerNo := CustomerNo;
+        PSalesheaderNo := Salesheader."No.";
     end;
 }
