@@ -6,17 +6,21 @@ pageextension 50105 "BAL Company Info" extends "Company Information"
         {
             group("Booking")
             {
-                CaptionML = ENU='Booking', DAN='Booking';
+                CaptionML = ENU = 'Booking', DAN = 'Booking';
 
-                field("BAL BookingURL";rec."BAL BookingURL")
+                field("BAL BookingURL"; rec."BAL BookingURL")
                 {
                     ApplicationArea = all;
                 }
-                field("BAL Username";rec."BAL Username")
+                field("BAL Username"; rec."BAL Username")
                 {
                     ApplicationArea = all;
                 }
-                field("BAL Password";rec."BAL Password")
+                field("BAL Password"; rec."BAL Password")
+                {
+                    ApplicationArea = all;
+                }
+                field("BAL Web Active"; "BAL Web Active")
                 {
                     ApplicationArea = all;
                 }
@@ -37,7 +41,9 @@ pageextension 50105 "BAL Company Info" extends "Company Information"
                 Image = ViewComments;
                 ToolTip = 'Update Web with all records';
 
-                trigger OnAction()var BALBookingWebservice: Codeunit "BAL Booking Webservice";
+                trigger OnAction()
+                var
+                    BALBookingWebservice: Codeunit "BAL Booking Webservice";
                 begin
                     BALBookingWebservice.WebTotalUpdate();
                 end;

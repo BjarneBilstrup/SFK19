@@ -12,6 +12,14 @@ pageextension 50101 "BAL Resource List Extention" extends "Resource List"
             {
                 ApplicationArea = all;
             }
+            field("BAL Archive Quote Qty"; rec."BAL Archive Quote Qty")
+            {
+                ApplicationArea = All;
+            }
+            field("BAL Archive Order Qty"; rec."BAL Archive Order Qty")
+            {
+                ApplicationArea = All;
+            }
         }
     }
     actions
@@ -73,15 +81,15 @@ pageextension 50101 "BAL Resource List Extention" extends "Resource List"
                             Salesline.validate("No.", Resource2."No.");
                             Salesline.validate(Quantity, 1);
                             Salesline."Shipment Date" := Datefield;
-                            if Salesline."No." > 'AKSEL' then begin
+                            if Salesline."No." > 'EX' then begin
                                 Salesline."BAL Start time" := StartTime;
                                 Salesline."BAL ending time" := EndTime;
                             end;
                             salesline.insert;
                         until Resource2.next = 0;
-                        Datefield := CalcDate('<1D>',Datefield);
+                        Datefield := CalcDate('<1D>', Datefield);
                     until Datefield > DateTofield;
-                    page.run(42,SalesHeader);
+                    page.run(42, SalesHeader);
                 end;
             }
         }

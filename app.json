@@ -2,7 +2,7 @@
   "id": "66c35aef-cb76-4fe1-88fa-6c5d47fd5118",
   "name": "SFK Booking 19",
   "publisher": "balance",
-  "version": "2.0.0.192",
+  "version": "2.0.0.201",
   "brief": "",
   "description": "",
   "privacyStatement": "",
@@ -20,5 +20,5 @@
       "to": 50149
     }
   ],
-  "runtime": "8.0"
+  "runtime": "10.0"
 }

@@ -17,5 +17,10 @@ tableextension 50102 "BAL CompanyInfo" extends "Company Information"
             DataClassification = CustomerContent;
             Caption = 'Password';
         }
+        field(50103; "BAL Web Active"; Boolean)
+        {
+            DataClassification = ToBeClassified;
+            Caption= 'Web update active';
+        }
     }
 }
