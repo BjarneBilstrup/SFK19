@@ -46,9 +46,6 @@ pageextension 50129 "BAL Shipmentline" extends "Posted Sales Shpt. Subform"
             {
                 ApplicationArea = Comments;
                 Caption = 'N&ote';
-                Promoted = true;
-                PromotedCategory = Process;
-                PromotedIsBig = true;
                 Image = ViewComments;
                 RunObject = Page 67;
                 RunPageLink = "Document Type"=const(Shipment), "No."=FIELD("Document No."), "Document Line No."=field("Line No.");

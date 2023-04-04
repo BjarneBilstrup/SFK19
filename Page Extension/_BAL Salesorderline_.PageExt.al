@@ -46,9 +46,6 @@ pageextension 50108 "BAL Salesorderline" extends "Sales Order Subform"
             {
                 ApplicationArea = Comments;
                 Caption = 'N&ote';
-                Promoted = true;
-                PromotedCategory = Process;
-                PromotedIsBig = true;
                 Image = ViewComments;
                 RunObject = Page 67;
                 RunPageLink = "Document Type"=field("Document Type"), "No."=FIELD("Document No."), "Document Line No."=field("Line No.");
@@ -58,9 +55,6 @@ pageextension 50108 "BAL Salesorderline" extends "Sales Order Subform"
             {
                 ApplicationArea = Comments;
                 Caption = 'Kopier til dato(er)';
-                Promoted = true;
-                PromotedCategory = Process;
-                PromotedIsBig = true;
                 Image = Copy;
                 ToolTipML = ENU='View comments for the record.', DAN='Kopier valgte linjer frem';
 

@@ -1,6 +1,7 @@
 codeunit 50100 "BAL Booking Webservice"
 //BAL1.00 EA 05-09-2019 Booking WebService 
 {
+    //if WebService.HttpRequestBooking('BookingModify', "Document No.", "Line No.", format("Shipment Date", 0, '<year4><month,2><day,2>'), format("BAL Start time"), format("BAL ending time"), "no.", Resource.Name, SalesHeader."Sell-to Customer Name" + ' ' + "Description 2") = '' then;
     procedure HttpRequestBooking(CallFunction: Text[20];
     DocumentNo: Code[20];
     LineNo: Integer;
@@ -59,10 +60,14 @@ codeunit 50100 "BAL Booking Webservice"
             //XML_Text := XML_BookingModify;
             RequestMessage.SetRequestUri(URL);
             RequestMessage.Method('POST');
+
             Content.WriteFrom(XML_text);
             Content.GetHeaders(Headers);
             Headers.Remove('Content-Type');
             Headers.Add('Content-Type', 'text/xml;charset=UTF-8');
+            Client.DefaultRequestHeaders.Add('User-Agent', 'Dynamics 365');
+
+            //RequestMessage.SetRequestUri(CompanyName);
             RequestMessage.Content := Content;
             RequestMessage.GetHeaders(Headers);
             /*
@@ -113,7 +118,7 @@ codeunit 50100 "BAL Booking Webservice"
         Salesheader: Record "Sales Header";
         resource: Record Resource;
     begin
-        HttpRequestBooking('BookingTruncate', '', 0, '', '', '', '', '', '');
+        //HttpRequestBooking('BookingTruncate', '', 0, '', '', '', '', '', '');
 
         SalesLine.setrange(SalesLine."Document Type", SalesLine."Document Type"::Order);
         SalesLine.setrange(SalesLine.type, SalesLine.type::Resource);

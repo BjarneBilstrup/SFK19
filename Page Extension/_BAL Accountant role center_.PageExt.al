@@ -9,9 +9,6 @@ pageextension 50103 "BAL Accountant role center" extends "9006"
             {
                 ApplicationArea = Comments;
                 Caption = 'Boo&king';
-                Promoted = true;
-                PromotedCategory = Process;
-                PromotedIsBig = true;
                 Image = ViewComments;
                 RunObject = Page 50100;
                 ToolTip = 'Booking Matrix';
@@ -20,9 +17,6 @@ pageextension 50103 "BAL Accountant role center" extends "9006"
             {
                 ApplicationArea = Comments;
                 Caption = 'Detaljeret råbalance';
-                Promoted = true;
-                PromotedCategory = Process;
-                PromotedIsBig = true;
                 Image = ViewComments;
                 RunObject = report "Detail Trial Balance";
                 ToolTip = 'Booking Matrix';

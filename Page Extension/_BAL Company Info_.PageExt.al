@@ -20,7 +20,7 @@ pageextension 50105 "BAL Company Info" extends "Company Information"
                 {
                     ApplicationArea = all;
                 }
-                field("BAL Web Active"; "BAL Web Active")
+                field("BAL Web Active"; rec."BAL Web Active")
                 {
                     ApplicationArea = all;
                 }
