@@ -1,4 +1,4 @@
-pageextension 50103 "BAL Accountant role center" extends "9006"
+pageextension 50103 "BAL Accountant role center" extends "Order Processor Role Center"
 {
     actions
     {

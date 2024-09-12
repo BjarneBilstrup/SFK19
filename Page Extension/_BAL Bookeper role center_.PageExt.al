@@ -1,4 +1,4 @@
-pageextension 50114 "BAL Bookeper role center" extends "9027"
+pageextension 50114 "BAL Bookeper role center" extends "Accountant Role Center"
 {
     actions
     {

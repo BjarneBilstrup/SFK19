@@ -178,7 +178,7 @@ page 50100 "BAL Resource Booking"
 
     var
         MatrixRecords: array[7] of Record Date;
-        PeriodType: Option Day,Week,Month,Quarter,Year,"Accounting Period";
+        PeriodType: Enum "Analysis Period Type";
         MatrixColumnCaptions: array[7] of Text[1024];
         ColumnSet: Text[1024];
         SetWanted: Option Initial,Previous,Same,Next,PreviousColumn,NextColumn;
